@@ -11,8 +11,10 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'post/:year/:month:/:day', component: PostComponent },
-  { path: 'post/:id', component: PostComponent },
+  { path: 'posts/bydate/:year', component: PostComponent },
+  { path: 'posts/bydate/:year/:month', component: PostComponent },
+  { path: 'posts/bydate/:year/:month/:day', component: PostComponent },
+  { path: 'post/byid/:id', component: PostComponent },
   { path: 'project/:id', component: ProjectComponent },
 ];
 

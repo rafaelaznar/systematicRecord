@@ -12,8 +12,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,  
-    FooterComponent,  
+    MenuComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
