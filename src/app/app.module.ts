@@ -1,3 +1,4 @@
+import { HomeComponent } from './component/application/home/home.component';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -7,13 +8,18 @@ import { MenuComponent } from './component/shared/menu/menu.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './component/shared/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PostComponent } from './component/application/post/post.component';
+import { PostsComponent } from './component/application/posts/posts.component';
 
 
 @NgModule({
   declarations: [
+    HomeComponent,
     AppComponent,
     MenuComponent,
     FooterComponent,
+    PostComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
