@@ -1,4 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
-.table {
- font-size: 0.9rem;
+body {
+    font-family: Arial, "Roboto", sans-serif;
+    font-size: 1rem;
+}
+
+@media (max-width: 1200px) {
+    body {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 1000px) {
+    body {        
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 684px) {
+    body {        
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 382px) {
+    body {
+        font-size: 0.7rem;
+    }
 }

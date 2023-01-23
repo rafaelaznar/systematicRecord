@@ -10,35 +10,21 @@ declare let marked: any;
 })
 export class DawComponent implements OnInit {
 
-  public content: string;
-  public mcontent: string;
-
+  public contentFromFile: string;
+  public parsedContent: string;
+  public url = 'assets/daw.md';
 
   constructor(
     private http: HttpClient,
   ) { }
 
-
-
   ngOnInit() {
-
-
-
-
-
-
-    this.http.get('assets/daw.md', { responseType: 'text' }).subscribe(
+    this.http.get(this.url, { responseType: 'text' }).subscribe(
       (response: string) => {
-        this.content = response;
-        console.log('2:', response);
-        this.mcontent = marked.parse(this.content);
-
-
+        this.contentFromFile = response;
+        this.parsedContent = marked.parse(this.contentFromFile);
       }
     )
-
-
-
 
   }
 
