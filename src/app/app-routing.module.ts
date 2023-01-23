@@ -12,14 +12,12 @@ import { DawComponent } from './component/application/daw/daw.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'daw', component: DawComponent },
+  { path: ':namefile', component: HomeComponent },  
+  { path: 'daw', component: DawComponent },  
   { path: 'projects', component: ProjectsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'posts', component: PostsComponent },
-  { path: 'posts/:year', component: PostsComponent },
-  { path: 'posts/:year/:month', component: PostsComponent },
-  { path: 'posts/:year/:month/:day', component: PostsComponent },
-  { path: 'post/:id', component: PostComponent },
+  { path: 'posts/:namefile', component: PostsComponent },
   { path: 'project/:id', component: ProjectComponent },
 ];
 

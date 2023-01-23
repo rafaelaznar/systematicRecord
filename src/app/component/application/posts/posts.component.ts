@@ -11,6 +11,7 @@ export class PostsComponent implements OnInit {
   year: number = null;
   month: number = null;
   day: number = null;
+  nameFile: string = null;
 
   public contentFromFile: string;
   public parsedContent: string;
@@ -20,19 +21,29 @@ export class PostsComponent implements OnInit {
     private oActivatedRoute: ActivatedRoute,
     private http: HttpClient,
   ) {
-    this.year = this.oActivatedRoute.snapshot.params['year'];
-    this.month = this.oActivatedRoute.snapshot.params['month'];
-    this.day = this.oActivatedRoute.snapshot.params['day'];
+    this.nameFile = this.oActivatedRoute.snapshot.params['namefile'];
+    //this.month = this.oActivatedRoute.snapshot.params['month'];
+    //this.day = this.oActivatedRoute.snapshot.params['day'];
     console.log('year', this.year, 'month', this.month, 'day', this.day);
   }
 
   ngOnInit() {
-    this.http.get(this.url, { responseType: 'text' }).subscribe(
-      (response: string) => {
-        this.contentFromFile = response;
-        this.parsedContent = marked.parse(this.contentFromFile);
-      }
-    )
+    console.log('nameFile', this.nameFile);
+    if (this.nameFile) {
+      this.http.get('assets/posts/' + this.nameFile, { responseType: 'text' }).subscribe(
+        (response: string) => {
+          this.contentFromFile = response;
+          this.parsedContent = marked.parse(this.contentFromFile);
+        }
+      )
+    } else {
+      this.http.get('assets/posts.md', { responseType: 'text' }).subscribe(
+        (response: string) => {
+          this.contentFromFile = response;
+          this.parsedContent = marked.parse(this.contentFromFile);
+        }
+      )
+    }
   }
 
 }
