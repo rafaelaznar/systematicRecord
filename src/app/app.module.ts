@@ -10,11 +10,13 @@ import { FooterComponent } from './component/shared/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PostComponent } from './component/application/post/post.component';
 import { PostsComponent } from './component/application/posts/posts.component';
+import { DawComponent } from './component/application/daw/daw.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
+    DawComponent,
     AppComponent,
     MenuComponent,
     FooterComponent,

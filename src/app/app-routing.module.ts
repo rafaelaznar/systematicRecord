@@ -7,10 +7,12 @@ import { ProjectsComponent } from './component/application/projects/projects.com
 import { ProjectComponent } from './component/application/project/project.component';
 import { PostsComponent } from './component/application/posts/posts.component';
 import { HomeComponent } from './component/application/home/home.component';
+import { DawComponent } from './component/application/daw/daw.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'daw', component: DawComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'posts', component: PostsComponent },
