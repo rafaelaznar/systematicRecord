@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -12,13 +11,12 @@ export class FooterComponent implements OnInit {
   footerContent: string = "";
 
   constructor(
-    private http: HttpClient
+    private oHttp: HttpClient
   ) { }
 
   ngOnInit() {
-    this.http.get('assets/footer.html', { responseType: 'text' }).subscribe(
-      (response: string) => {
-        console.log(response);
+    this.oHttp.get('assets/footer.html', { responseType: 'text' }).subscribe(
+      (response: string) => {        
         this.footerContent = response;
       }
     )

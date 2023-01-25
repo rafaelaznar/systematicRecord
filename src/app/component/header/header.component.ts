@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,22 +8,14 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  strUrl: String = "";
-  menuContent: string = "";
+  public headerContent: string;
 
-  constructor(private http: HttpClient, private oRouter: Router) {
-    this.oRouter.events.subscribe((ev) => {
-      if (ev instanceof NavigationEnd) {
-        this.strUrl = ev.url;
-      }
-    })
-  }
+  constructor(private oHttp: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('assets/header.html', { responseType: 'text' }).subscribe(
+    this.oHttp.get('assets/header.html', { responseType: 'text' }).subscribe(
       (response: string) => {
-        console.log(response);
-        this.menuContent = response;
+        this.headerContent = response;
       }
     )
   }

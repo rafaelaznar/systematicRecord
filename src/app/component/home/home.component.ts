@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 declare let marked: any;
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -32,7 +33,6 @@ export class HomeComponent implements OnInit {
         this.route = "assets/home.md";
       }
     }
-    console.log("route", this.route);
   }
 
   ngOnInit() {
