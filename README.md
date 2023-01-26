@@ -14,3 +14,6 @@
 * Execute command ng build --output-hashing none
 * Copy dist folder of SR to root folder of your new repository.
 * Copy index.html and paste into 404.html
+## Example (unfinished)
+* [Github pages](https://rafaelaznar.github.io/)
+* [Github site](https://github.com/rafaelaznar/rafaelaznar.github.io/blob/master/assets/home.md)
