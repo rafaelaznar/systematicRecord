@@ -4,7 +4,7 @@
 * SR is tiny and simple.
 * The main feature and advantage of this program is that you can access your information both from Github repository and published in Github pages without link errors. This is very comfortable for edition because you edit directly markdown files from your repository. See example to learn about links in your site.
 ## Try the program
-* Clone repository
+* Clone SR repository
 * Execute command npm install to install dependencies
 * Execute command ng serve
 ## Use program
