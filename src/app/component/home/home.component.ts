@@ -9,14 +9,16 @@ declare let marked: any;
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
 
   public namefile: string;
   public namefolder: string;
   public route: string = "";
   public contentFromFile: string;
-  public parsedContent: string;
+  public parsedContent: string = null;
   public headerContent: string;
+  public imageContent: string = null;
 
   constructor(
     private http: HttpClient,
@@ -38,15 +40,27 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.http.get('assets/header.html', { responseType: 'text' }).subscribe(
       (response: string) => {
-        
-        this.headerContent = response; 
+        this.headerContent = response;
       }
     )
-    this.http.get(this.route, { responseType: 'text' }).subscribe(
-      (response: string) => {
-        this.contentFromFile = response;
-        this.parsedContent = marked.parse(this.contentFromFile); 
-      }
-    )
+    if (this.namefile.endsWith(".png") || this.namefile.endsWith(".jpg")
+      || this.namefile.endsWith(".jpeg") || this.namefile.endsWith(".gif")
+      || this.namefile.endsWith(".svg")) {
+      /*
+      this.http.get(this.route, { responseType: 'image/png' }).subscribe(
+        (response: string) => {
+          this.contentFromFile = response;
+          this.parsedContent = marked.parse(this.contentFromFile);
+        }
+      )
+      */      
+    } else {
+      this.http.get(this.route, { responseType: 'text' }).subscribe(
+        (response: string) => {
+          this.contentFromFile = response;
+          this.parsedContent = marked.parse(this.contentFromFile);
+        }
+      )
+    }
   }
 }
