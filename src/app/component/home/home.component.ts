@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
   public contentFromFile: string;
   public parsedContent: string = null;
   public headerContent: string;
-  public imageContent: string = null;
 
   constructor(
     private http: HttpClient,
@@ -43,24 +42,11 @@ export class HomeComponent implements OnInit {
         this.headerContent = response;
       }
     )
-    if (this.namefile.endsWith(".png") || this.namefile.endsWith(".jpg")
-      || this.namefile.endsWith(".jpeg") || this.namefile.endsWith(".gif")
-      || this.namefile.endsWith(".svg")) {
-      /*
-      this.http.get(this.route, { responseType: 'image/png' }).subscribe(
-        (response: string) => {
-          this.contentFromFile = response;
-          this.parsedContent = marked.parse(this.contentFromFile);
-        }
-      )
-      */      
-    } else {
-      this.http.get(this.route, { responseType: 'text' }).subscribe(
-        (response: string) => {
-          this.contentFromFile = response;
-          this.parsedContent = marked.parse(this.contentFromFile);
-        }
-      )
-    }
+    this.http.get(this.route, { responseType: 'text' }).subscribe(
+      (response: string) => {
+        this.contentFromFile = response;
+        this.parsedContent = marked.parse(this.contentFromFile);
+      }
+    )
   }
 }
