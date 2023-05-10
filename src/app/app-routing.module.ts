@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: ':namefile', component: HomeComponent },  
   { path: ':namefolder/:namefile', component: HomeComponent },  
+  { path: ':namefolder1/:namefolder2/:namefile', component: HomeComponent },  
 ];
 
 @NgModule({

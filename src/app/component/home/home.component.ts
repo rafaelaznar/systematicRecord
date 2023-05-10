@@ -14,6 +14,9 @@ export class HomeComponent implements OnInit {
 
   public namefile: string;
   public namefolder: string;
+  public namefolder1: string;
+  public namefolder2: string;
+  public base: string;
   public route: string = "";
   public contentFromFile: string;
   public parsedContent: string = null;
@@ -25,13 +28,20 @@ export class HomeComponent implements OnInit {
   ) {
     this.namefile = this.oActivatedRoute.snapshot.params['namefile'];
     this.namefolder = this.oActivatedRoute.snapshot.params['namefolder'];
-    if (this.namefolder && this.namefile) {
-      this.route = "assets/" + this.namefolder + '/' + this.namefile;
+    this.namefolder1 = this.oActivatedRoute.snapshot.params['namefolder1'];
+    this.namefolder2 = this.oActivatedRoute.snapshot.params['namefolder2'];
+    this.base = "assets/";
+    if (this.namefolder1 && this.namefolder2 && this.namefile) {
+      this.route = this.base + this.namefolder1 + "/" + this.namefolder2 + '/' + this.namefile;
     } else {
-      if (this.namefile) {
-        this.route = "assets/" + this.namefile;
+      if (this.namefolder && this.namefile) {
+        this.route = this.base + this.namefolder + '/' + this.namefile;
       } else {
-        this.route = "assets/home.md";
+        if (this.namefile) {
+          this.route = this.base + this.namefile;
+        } else {
+          this.route = this.base + "home.md";
+        }
       }
     }
   }
@@ -49,5 +59,5 @@ export class HomeComponent implements OnInit {
       }
     )
   }
-  
+
 }
