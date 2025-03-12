@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { baseURL, editionBaseURL } from 'src/environments/environment';
 
 declare let marked: any;
 
@@ -17,7 +18,9 @@ export class HomeComponent implements OnInit {
   public namefolder1: string;
   public namefolder2: string;
   public base: string;
+  public editionBase: string;
   public route: string = "";
+  public editroute: string = "";
   public contentFromFile: string;
   public parsedContent: string = null;
   public headerContent: string;
@@ -30,17 +33,22 @@ export class HomeComponent implements OnInit {
     this.namefolder = this.oActivatedRoute.snapshot.params['namefolder'];
     this.namefolder1 = this.oActivatedRoute.snapshot.params['namefolder1'];
     this.namefolder2 = this.oActivatedRoute.snapshot.params['namefolder2'];
-    this.base = "assets/";
+    this.base = baseURL;
+    this.editionBase= editionBaseURL;
     if (this.namefolder1 && this.namefolder2 && this.namefile) {
       this.route = this.base + this.namefolder1 + "/" + this.namefolder2 + '/' + this.namefile;
+      this.editroute = this.editionBase + this.namefolder1 + "/" + this.namefolder2 + '/' + this.namefile;
     } else {
       if (this.namefolder && this.namefile) {
         this.route = this.base + this.namefolder + '/' + this.namefile;
+        this.editroute = this.editionBase + this.namefolder + '/' + this.namefile;
       } else {
         if (this.namefile) {
           this.route = this.base + this.namefile;
+          this.editroute = this.editionBase + this.namefile
         } else {
           this.route = this.base + "home.md";
+          this.editroute = this.editionBase + "home.md";
         }
       }
     }
