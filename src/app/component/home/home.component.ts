@@ -55,17 +55,20 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get('assets/header.html', { responseType: 'text' }).subscribe(
-      (response: string) => {
-        this.headerContent = response;
-      }
-    )
     this.http.get(this.route, { responseType: 'text' }).subscribe(
       (response: string) => {
         this.contentFromFile = response;
         this.parsedContent = marked.parse(this.contentFromFile);
       }
     )
+    // headers or footers can be also loaded from external files
+    /*
+    this.http.get('assets/header.html', { responseType: 'text' }).subscribe(
+      (response: string) => {
+        this.headerContent = response;
+      }
+    )
+    */
   }
 
 }
