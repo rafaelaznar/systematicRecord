@@ -23,7 +23,7 @@ Let's see if we can refine it so you can use it, since it's very simple and conv
   * Also create personalized markdown headers or footers for a page (commented in code).
 * See example to learn about links in your site.
 * TODO:
-  * Only 
+  * Pages can only be set up at up to two levels. Make it dynamic.
   * Show highlighted code.
   
 ## Try the program
