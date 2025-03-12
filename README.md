@@ -12,7 +12,6 @@ Let's see if we can refine it so you can use it, since it's very simple and conv
 * SR is tiny and simple.
 * SR is made using Angular.
 * The content of every page is requested via AJAX get to Github and then markdown parsed using https://marked.js.org/ (MIT).
-* It also uses https://github.com/PrismJS/prism/ (MIT) to show code.
 * Advantages:
   * Publish SR in your own project in your Github account.
   * When you create a page in the assets folder in Github it is showed in SR. So you can use Github editor to post.
